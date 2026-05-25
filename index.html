@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>佐々木世紀 様｜morich キャリアご提案</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #E60012;
+    --red-light: #fff0f0;
+    --gray-50: #f9fafb;
+    --gray-100: #f3f4f6;
+    --gray-200: #e5e7eb;
+    --gray-500: #6b7280;
+    --gray-600: #4b5563;
+    --gray-700: #374151;
+    --gray-900: #111827;
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-600: #2563eb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: #f5f5f5; color: var(--gray-900); line-height: 1.75; }
+  header { background: #fff; border-bottom: 3px solid var(--red); padding: 14px 24px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+  header img { height: 38px; }
+  header .htxt p:first-child { font-size: 12px; color: var(--gray-500); }
+  header .htxt p:last-child { font-size: 17px; font-weight: 900; }
+  .nav-bar { background: var(--gray-900); padding: 0 12px; overflow-x: auto; white-space: nowrap; }
+  .nav-bar a { display: inline-block; padding: 13px 18px; color: #ccc; text-decoration: none; font-size: 12px; font-weight: 700; border-bottom: 3px solid transparent; transition: all 0.2s; }
+  .nav-bar a:hover { color: #fff; border-bottom-color: var(--red); }
+  main { max-width: 860px; margin: 0 auto; padding: 28px 14px 64px; }
+  .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 40px; overflow: hidden; border-top: 5px solid var(--red); }
+  .card-inner { padding: 28px 28px 36px; }
+  .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+  .badge { font-size: 11px; font-weight: 700; padding: 3px 12px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--red-light); }
+  .badge-blue { border-color: var(--blue-600); color: var(--blue-600); background: var(--blue-50); }
+  .co-name { font-size: clamp(22px, 5vw, 34px); font-weight: 900; line-height: 1.2; margin-bottom: 5px; }
+  .co-url { font-size: 12px; margin-bottom: 22px; }
+  .co-url a { color: var(--blue-600); text-decoration: none; }
+  .co-url a:hover { text-decoration: underline; }
+  .overview { background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .overview h3 { font-size: 10px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+  .overview table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .overview tr { border-bottom: 1px solid var(--blue-100); }
+  .overview tr:last-child { border-bottom: none; }
+  .overview th { text-align: left; padding: 6px 14px 6px 0; color: var(--gray-600); font-weight: 700; width: 100px; vertical-align: top; white-space: nowrap; }
+  .overview td { padding: 6px 0; color: var(--gray-700); }
+  .highlight { background: var(--red-light); border: 2px solid var(--red); border-radius: 8px; padding: 16px 20px; margin-bottom: 22px; }
+  .highlight h3 { font-size: 13px; font-weight: 900; color: var(--red); margin-bottom: 8px; }
+  .highlight p, .highlight li { font-size: 13px; color: #7a0000; margin-bottom: 4px; }
+  .highlight ul { padding-left: 16px; }
+  .accordion { margin-bottom: 16px; }
+  .acc-header { display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; padding: 12px 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px; user-select: none; transition: background 0.15s; }
+  .acc-header:hover { background: var(--gray-100); }
+  .acc-header .label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--red); border-left: 3px solid var(--red); padding-left: 8px; margin-bottom: 5px; display: block; }
+  .acc-preview { font-size: 12px; color: var(--gray-500); line-height: 1.6; }
+  .acc-header-left { flex: 1; }
+  .acc-icon { width: 28px; height: 28px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--gray-200); font-size: 13px; transition: transform 0.25s, background 0.2s; }
+  .acc-header.open .acc-icon { transform: rotate(180deg); background: var(--red); color: #fff; }
+  .acc-header.open { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom-color: transparent; }
+  .acc-body { display: none; padding: 20px 18px; border: 1px solid var(--gray-200); border-top: none; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .acc-body.open { display: block; }
+  .acc-body p { margin-bottom: 10px; }
+  .acc-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .acc-body li { margin-bottom: 6px; }
+  .job-wrap { border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+  .job-header { background: var(--gray-900); color: #fff; padding: 14px 18px; display: flex; align-items: flex-start; justify-content: space-between; cursor: pointer; user-select: none; }
+  .job-title-text { font-size: 14px; font-weight: 900; margin-bottom: 3px; }
+  .job-preview { font-size: 11px; color: #aaa; line-height: 1.5; }
+  .job-icon { width: 26px; height: 26px; flex-shrink: 0; margin-left: 12px; margin-top: 2px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(255,255,255,0.15); font-size: 12px; transition: transform 0.25s; }
+  .job-header.open .job-icon { transform: rotate(180deg); }
+  .job-body { display: none; padding: 20px 18px; font-size: 13px; color: var(--gray-700); line-height: 1.85; }
+  .job-body.open { display: block; }
+  .job-body p { margin-bottom: 10px; }
+  .job-body ul { padding-left: 18px; margin-bottom: 10px; }
+  .job-body li { margin-bottom: 6px; }
+  .job-section { font-size: 11px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .06em; margin: 14px 0 6px; }
+  .tag { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-right: 5px; margin-bottom: 8px; }
+  .tag-must { background: var(--red); color: #fff; }
+  .tag-want { background: var(--gray-600); color: #fff; }
+  .meta-pills { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+  .pill { font-size: 12px; font-weight: 700; padding: 4px 11px; border-radius: 999px; background: var(--gray-100); color: var(--gray-700); border: 1px solid var(--gray-200); }
+  .section-label { font-size: 11px; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .08em; border-left: 3px solid var(--red); padding-left: 8px; margin: 22px 0 10px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .lbtn { display: inline-flex; align-items: center; gap: 5px; padding: 7px 14px; border-radius: 6px; background: var(--gray-900); color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; transition: background 0.2s; }
+  .lbtn:hover { background: var(--red); }
+  .lbtn-out { background: transparent; color: var(--gray-900); border: 2px solid var(--gray-200); }
+  .lbtn-out:hover { background: var(--gray-900); color: #fff; border-color: var(--gray-900); }
+  footer { text-align: center; padding: 28px 16px; font-size: 11px; color: var(--gray-500); border-top: 1px solid var(--gray-200); background: #fff; }
+  @media(max-width:600px){ .card-inner{ padding: 18px 14px 24px; } .overview th { width: 80px; } }
+</style>
+</head>
+<body>
+<header>
+  <img src="morich_logo.jpg" alt="morich">
+  <div class="htxt">
+    <p>morich キャリアご提案資料</p>
+    <p>佐々木世紀 様</p>
+  </div>
+</header>
+<nav class="nav-bar">
+  <a href="#k1">1. 株式会社じげん</a>
+  <a href="#k2">2. 株式会社SHIFT AI</a>
+  <a href="#k3">3. 株式会社DoCLASSE</a>
+  <a href="#k4">4. 株式会社カウシェ</a>
+  <a href="#k5">5. リビン・テクノロジーズ株式会社</a>
+</nav>
+<main>
+
+<div class="card" id="k1"><div class="card-inner">
+  <div class="badges"><span class="badge">CHRO候補</span><span class="badge badge-blue">東証プライム</span></div>
+  <div class="co-name">株式会社じげん</div>
+  <div class="co-url"><a href="https://zigexn.co.jp/" target="_blank">https://zigexn.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都港区虎ノ門3-4-8</td></tr><tr><th>上場区分</th><td>東証プライム</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>役員リレーション</li><li>過去入社実績アリ</li><li>カジュアル面談スタート可</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">「生活機会（より良く生きるための選択肢）の最大化」をミッションに掲げ、独自のビジネスモデルで成長を続けている企業です。2018年6月には東証一部（現：プライム市場）へ市場変更を果たし、2019年の創業以来、14期連続で増収増益を実現。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>「生活機会（より良く生きるための選択肢）の最大化」をミッションに掲げ、独自のビジネスモデルで成長を続けている企業です。2018年6月には東証一部（現：プライム市場）へ市場変更を果たし、2019年の創業以来、14期連続で増収増益を実現。2024年3月期には過去最高の連結売上収益を記録し、従業員数も900名を超えるなど、着実に規模を拡大しています。</p><p>求人、不動産（賃貸・売買・リフォーム）、自動車、旅行など、40以上の領域でメディア・サービスを展開。また、2013年のマザーズ上場以降、領域を限定せず、さまざまな事業や周辺サービスへのM&Aも継続的に行っています。</p><p>取り組んでいるのは、「情報の非対称性（情報を届けたい人と、それを必要とする人がうまく出会えない問題）」の解消です。膨大な情報があふれる中から必要な情報を見つけやすく整理・再構築し、ユーザー一人ひとりに合わせて届けることで、最良の意思決定を後押しする「場」をつくっています。</p><p>現在は、（1）M&A、（2）大手企業とのアライアンス、（3）新規事業の立ち上げといったテーマで、スピード感をもって多角的に事業を展開中。近年では、国内旅行B2B市場で圧倒的なシェアを持つ「アップルワールド」を中核に、シンガポール企業の買収などを通じて、クロスボーダーでの展開を加速。また、HR領域においても、ホワイトカラー向けに加え、薬剤師紹介などエッセンシャルワーカー領域のM&Aを積極的に進めています。</p><p><strong>特徴的なのは、ベンチャーのスピード感を持ちながら、プライム上場企業としての資本力、そして投資ファンドのような冷静な事業目利き力を併せ持っている点です。</strong></p><p>じげんの成長エンジンは、明確に「M&A」です。ただし、買収後に無理やり本体へ統合するのではなく、各社の文化や強みを尊重し、独立性を保った経営を行うケースが多いのが特徴です。その結果、買収企業の「社長」「取締役」「事業トップ」ポストが継続的に生まれ続けています。</p><p>一方で、任せられる経営人材が圧倒的に足りていないという成長企業ならではの課題も抱えています。事業の勘所を理解し、PMI（統合後のプロセス）を推進できる人材が求められています。</p><ul><li><strong>CEO平尾 丈氏</strong>：1982年、東京都生まれ。2005年、慶應義塾大学環境情報学部卒業。リクルート出身、マーケティングに強みを持つ経営者です。</li><li>創業以来、基本は増収増益で成長（コロナ禍の2021年3月期のみ減収減益、旅行業中心にマイナス）。</li><li>「生活機会の最大化」をミッションに社会の負を解消するため、事業を多角化。M&Aに積極的で累計28件（年3～4社）実施。</li><li>強みは①マッチングテクノロジー（リボン図型のビジネスモデルを中心に領域展開）、②M&A後の投資回収スピード（8割弱は3～5年で回収）</li><li>BtoBとBtoCどちらの知見も磨け、事業ドメインも多岐にわたる。</li></ul></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 CHRO候補</div>
+          <div class="job-preview">東証プライム上場インターネット企業として事業、組織ともに急成長している当社で、人事最高責任者候補としてリードできる人材を募集</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>業務内容：</strong>東証プライム上場インターネット企業として事業、組織ともに急成長している当社。じげんグループでは、人材・不動産を中心に多数の生活領域で40以上のサービスを提供しております。積極的なM＆A(累計30件)、新規事業立ち上げによるビジネスの拡大に伴い、「CHRO（人事最高責任者）候補」として、中長期的な組織・人事戦略の策定から実行までリードできる人材を募集いたします。</p><p>人事最高責任者候補であるため、経営陣と直接今後の経営戦略・事業戦略についてディスカッションする機会も多く、経営目線を持ちながら人事全体を統括し、リードしていただくことができるポジションです。</p><p><strong>【具体的な業務内容】</strong></p><ul><li>経営戦略・事業戦略からの組織・人事戦略への落とし込み〜ロードマップ設計〜推進</li><li>新卒・中途採用の採用戦略立案、採用ブランディング戦略の立案</li><li>組織活性のための施策立案・推進</li><li>人事評価制度・福利厚生系制度の施策立案・推進</li><li>組織開発・人材育成施策の立案・推進</li><li>部門のマネジメント</li></ul><p><strong>【配属先】</strong><br>経営推進部：人事の中でも採用・育成・人事制度・組織活性のミッションを担っており、労務は現在別部門となっております。事業の環境変化に応じて柔軟な人事施策を全社に向け提案していく「攻めの人事」が求められています。</p><p><strong>応募資格：</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>人事経験をお持ちの方（5年以上）</li><li>事業会社での幅広い人事領域を経験しており、特に以下に強みをお持ちの方<ul><li>経営戦略に基づく人事戦略・組織戦略の立案経験</li><li>人事関連部門におけるマネジメント経験（5名以上）</li><li>採用戦略立案の経験</li><li>人事評価制度の企画・運用経験</li></ul></li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>IT・Web系ベンチャー企業での人事経験をお持ちの方</li><li>コングロマリット企業での人事経験をお持ちの方</li><li>採用難易度の高いエグゼクティブレイヤーポジションの採用経験をお持ちの方</li><li>人材育成・人事制度構築に強みをお持ちの方</li></ul><p><strong>求める人物像：</strong><br>・スピード感をもって人事施策の企画・推進を担っていただける方<br>・変化を厭わず新しいチャレンジを楽しむことができる方<br>・周囲をうまく巻き込みながら部門マネジメントを行い、かつ自分でも手を動かすことを厭わない方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://zigexn.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k2"><div class="card-inner">
+  <div class="badges"><span class="badge">人事部長</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社SHIFT AI</div>
+  <div class="co-url"><a href="https://shift-ai.co.jp/company/" target="_blank">https://shift-ai.co.jp/company/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都渋谷区渋谷2丁目24-12 渋谷スクランブルスクエア</td></tr><tr><th>設立</th><td>2022年3月</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>役員リレーション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">株式会社SHIFT AIは、2022年3月に設立された企業で、「日本をAI先進国に」というビジョンのもと、AI関連のメディア事業・コミュニティ事業・法人事業の三本柱で事業を展開しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>株式会社SHIFT AIは、2022年3月に設立された企業で、「日本をAI先進国に」というビジョンのもと、AI関連のメディア事業・コミュニティ事業・法人事業の三本柱で事業を展開しています。</p><p>生成AIをはじめとするAI技術のビジネス活用を学べる国内最大級のコミュニティ「SHIFT AI」を運営しており、会員数はすでに2万人を超えています。個人向けだけでなく、法人向けのリスキリング支援サービス「SHIFT AI for Biz」や、教育機関向けの「SHIFT AI for School」なども展開し、幅広い分野でAI人材の育成を推進しています。</p><p>また、最新のAIトレンドやツール情報を発信するメディア「SHIFT AI TIMES」を運営し、X（旧Twitter）では約10万人のフォロワーを有するほか、TikTokやYouTube、Instagramなど複数のSNSでも情報発信を行っています。</p><p>法人事業では、企業向けに生成AI活用の研修から導入推進までを包括的に支援しており、これまでに2,500社以上の企業をサポート。法人向け研修事業は月次300％成長を継続するなど、急拡大フェーズにあります。</p><p><strong>代表取締役　木内 翔大氏</strong><br>1990年東京都生まれ。大学時代からフリーランスエンジニアとして活動し、2013年には日本初のマンツーマン専門プログラミングスクール「SAMURAI ENGINEER」を創業。累計4万人以上を指導した後、2022年に株式会社SHIFT AIを立ち上げ、「日本をAI先進国に」という理念のもと、AIのビジネス活用を広げる取り組みをリードされています。</p><p>AIの活用率は中国56.3%・米国46.3%に対し、日本は9%と大幅に遅れをとっている現状がありSHIFTAIのサービス拡大を通じて、年間100万人のAI人材を生み出す日本トップのAI人材育成企業を目指しています。</p><p>大手エンタープライズ企業から、従業員30名くらいの地方企業まで、延べ2500社ほどの生成AI支援の実績がありマーケティングに力を入れていることもあり、引き合いは多く、今後も右肩上がりに増える見込みです。</p><p>フルリモート・フルフレックス体制で、時間や場所に縛られない働き方ができ、平均年齢も36歳と子育て世代も多いカルチャーです。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 人事部長（Head of HR）</div>
+          <div class="job-preview">事業拡大に伴い、採用・労務・制度設計を含む人事領域全体のマネジメント体制強化が急務となっており、経営陣・CHRO直下でSHIFT AI全社の人事戦略および人事機能全体の最終責任を担う</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>SHIFT AIについて</strong><br>私たちSHIFT AIは「日本をAI先進国に」をミッションに、AIのビジネス活用を推進するインフラづくりに取り組んでいます。2022年3月の創業以来、メディア・コミュニティ・法人事業の3つの軸を通じてAI人材の育成と企業のAI活用支援を展開してきました。現在、AIの活用率は中国81%・米国69%に対し、日本はわずか27%にとどまっており（総務省・2025年情報通信白書）、この格差を埋めることが急務です。</p><p>今後は「AI人材×AI生産性」がGDPに直結する時代が到来します。私たちはその最前線に立ち、2030年までに日本をAI先進国にすることを目指しています。</p><p><strong>【募集背景】</strong><br>事業拡大に伴い、採用・労務・制度設計を含む人事領域全体のマネジメント体制強化が急務となっています。現在は採用中心の体制で運用していますが、社員数・事業数の増加により、今後は人事制度の整備や労務体制の高度化、評価・報酬制度の内製化が求められています。本ポジションは、経営陣・CHRO直下で、SHIFT AI全社の人事戦略および人事機能全体の最終責任を担っていただきます。</p><p><strong>【業務内容】</strong><br>事業成長および上場準備を見据え、採用・労務・制度・組織開発を横断し、経営戦略と一体となった人事の意思決定・実行をリードしていただきます。単なる人事施策の推進ではなく、「どのような組織・人材構成で事業を伸ばすか」を経営陣と共に決定する役割を期待しています。</p><p><strong>具体的な業務：</strong></p><ul><li>経営戦略に基づく経営戦略・事業計画に基づく、中長期の人員計画・人件費／採用予算の策定および最終意思決定</li><li>労務ガバナンスおよびリスクマネジメントの統括責任</li><li>全社組織課題の構造化および改善方針の策定（エンゲージメント・人材開発・オンボーディング等）</li><li>成長フェーズ・上場準備を見据えた評価・報酬制度の再設計および全社展開に対する責任</li><li>採用戦略全体の設計・運用および採用チームのマネジメント</li><li>MISSION・VALUEを軸とした組織文化の設計および浸透施策の統括</li></ul><p><strong>応募資格：</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>事業会社において、人事責任者またはそれに準ずる立場で人事領域を統括した経験（5年以上）</li><li>メンバーマネジメント経験（5名以上）</li><li>採用・労務・制度設計・組織開発のいずれか一部ではなく、複数領域を横断して全体設計・意思決定を行った経験</li><li>経営・事業責任者と並走し、人事戦略・人員計画・人件費／採用予算を意思決定レイヤーで担った経験</li><li>不確実性の高い環境（成長フェーズ・変化の激しい組織）において、論点整理から意思決定、実行までをリードしてきた経験</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>100名規模以上、または急成長フェーズ（スタートアップ等）での人事責任経験</li><li>上場準備・ガバナンス強化フェーズにおける人事制度／体制整備経験</li><li>採用難易度の高いポジション（専門職・マネジメント層）の採用責任経験</li><li>CHRO・CxOレイヤーと密に連携し、組織・人材に関する意思決定を行ってきた経験</li><li>人事部門の立ち上げ、または大きな変革（制度刷新・体制再編）を主導した経験</li></ul><p><strong>求める人物像：</strong><br>・事業成長と連動した人事戦略を描き、実行までやり切れる方<br>・採用・労務・制度設計を横断し、全体視点で人事をリードできる方<br>・経営陣と近い距離で議論し、事業課題を人事施策に落とし込める方<br>・現場に入り込みながら、仕組みづくりと改善を推進できる方<br>・急成長フェーズの変化を前向きに楽しめる方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 フルリモート可</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://shift-ai.co.jp/company/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k3"><div class="card-inner">
+  <div class="badges"><span class="badge">人事責任者</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社DoCLASSE</div>
+  <div class="co-url"><a href="https://www.doclasse.com/company" target="_blank">https://www.doclasse.com/company</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都世田谷区用賀4-10-1 ビジネススクエアタワー18F</td></tr><tr><th>設立</th><td>2007年</td></tr><tr><th>従業員数</th><td>約900名</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>「第二創業期」を牽引する、経営陣の真のパートナー</li><li>「100店舗構想」と「事業承継」を見据えた戦略的ミッション</li><li>「ミドル・シニア市場」という巨大なブルーオーシャンでの挑戦</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2007年の創業から約18年で年商156億円を達成した、40代・50代向けアパレルブランドの成長企業です。「楽に着られて、ワンサイズ細く見える服作り」という革新的なコンセプトで、従来のファッション業界では見過ごされがちだった大人の女性・男性に向けて、確実な価値を提供し続けています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2007年の創業から約18年で年商156億円を達成した、40代・50代向けアパレルブランドの成長企業です。「楽に着られて、ワンサイズ細く見える服作り」という革新的なコンセプトで、従来のファッション業界では見過ごされがちだった大人の女性・男性に向けて、確実な価値を提供し続けています。現在はカタログ会員数約300万人を抱え、全国60店舗を展開する規模まで成長しました。</p><p>2023年にはブレインパッドと共同で生成AIを活用した「カンバセーショナル・コマースサービス」の開発プロジェクトに参画するなど、最先端テクノロジーの導入にも積極的。同社の魅力は、商品企画・製造・販売・配送・店舗運営まで自社一貫体制により、顧客の声を直接商品に反映できる機動力にあります。</p><p><strong>代表取締役　林恵子氏</strong><br>愛媛県今治市出身、津田塾大学英文学科を卒業後、米国オレゴン州立大学心理学部へ転入・卒業。1985年の帰国後、マテルジャパン、ディズニーストアジャパンを経て、1999年に米国最大手通販アパレルブランド「ランズエンド」の日本支社長に就任し実績を残した後、2007年にDoCLASSEを設立。</p><p>パリで目にした年齢を重ねても美しく輝く女性たちに感銘を受け、日本の大人の女性をファッションの力で応援したいという強い信念を持つ経営者として、ウォール・ストリート・ジャーナル・アジア版で「アジアで最も注目すべき10人の女性」に選出された経歴を持つ。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 コーポレート_人事責任者</div>
+          <div class="job-preview">第二創業期の加速に向け、戦略的な攻めの人事ディレクターを募集。組織開発をリードしながら採用から制度設計まで、事業をドライブさせるための基盤構築を一任</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>第二創業期の加速に向け、戦略的な攻めの人事ディレクターを募集します。</strong><br>現任の人事ディレクターは違うミッションに異動予定の為、人事トップとして組織開発をリードしながら採用から制度設計まで、事業をドライブさせるための基盤構築を一任したいと考えています。</p><p><strong>ミッション</strong><br>DoCLASSEは創業20年を迎え、次の10年で売上1000億円規模への成長を目指す第二創業フェーズに入っています。この成長を支えるために、人事ディレクターには次のミッションを担っていただきます。</p><p><strong>「人と組織の力を解放し、DoCLASSEの次の10年をつくる経営基盤を築く」</strong></p><p>具体的には：</p><ul><li>900名規模の組織を支える安心・公正・透明な人事基盤の再構築</li><li>創業オーナーに依存しない経営体制を実現するためのサクセッションプランの設計と次世代リーダー育成</li><li>作業に追われる組織から、考え、企画し、成長を生み出す組織への転換</li><li>DoCLASSEの価値観・文化を次世代へつなぐ組織づくりの中核</li></ul><p><strong>このポジションの役割</strong><br>人事ディレクターは、単なる「管理部門の責任者」ではなく、経営戦略と人材戦略をつなぐ"組織づくりの責任者"として、以下を担います：</p><ul><li>経営と一体となった人材戦略・組織戦略の立案と実行</li><li>人事部門（労務・給与・採用・制度）の全体マネジメント</li><li>次世代経営人材＆事業責任者の発掘と育成（サクセッション）</li><li>組織生産性向上・DX推進による「考える余力」の創出</li><li>組織風土・カルチャーの再設計と浸透</li><li>経営陣＆事業責任者のパートナーとしての組織課題解決</li></ul><p><strong>主な業務内容</strong></p><p>① 経営・組織戦略領域<br>・中長期の人材戦略・組織戦略の策定<br>・サクセッションプランの設計・運用<br>・経営会議への参加、組織・人材に関する提言</p><p>② 人事制度・人材マネジメント領域<br>・評価・報酬・等級制度の再設計・運用高度化<br>・幹部・マネジャー層の育成体系構築<br>・採用戦略全体の設計（実務はチーム・外部と連携）</p><p>③ 組織基盤・オペレーション領域<br>・労務・コンプライアンス体制の強化<br>・人事業務のDX・効率化推進<br>・人事部門の組織力強化・メンバー育成</p><p>④ カルチャー・エンゲージメント領域<br>・組織風土改革、部門間連携の促進<br>・社員エンゲージメント向上施策の企画・実行</p><p><strong>応募資格：</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>事業会社における人事責任者またはそれに準ずる立場での経験</li><li>経営層と対等に議論し、組織・人材戦略を描いた経験</li><li>組織変革・制度改革・人材育成いずれかをリードした経験</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>500名以上の組織での人事マネジメント経験</li><li>オーナー企業や成長フェーズ企業での組織づくり経験</li><li>事業サイドのマネジメント経験</li><li>コンサルディング企業での経験</li></ul><p><strong>求める人物像：</strong><br>・現場と経営の両方を尊重できる<br>・正解のないテーマに粘り強く向き合える<br>・「人と組織」に本気で向き合える<br><br>「制度を作る人」ではなく、「経営と一緒に、会社の未来をつくる人」を求めています。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.doclasse.com/company" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k4"><div class="card-inner">
+  <div class="badges"><span class="badge">CHRO候補</span><span class="badge badge-blue">未上場</span></div>
+  <div class="co-name">株式会社カウシェ</div>
+  <div class="co-url"><a href="https://about.kauche.com/" target="_blank">https://about.kauche.com/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都渋谷区神南1丁目12-16 アジアビル9F</td></tr><tr><th>設立</th><td>2020年4月</td></tr><tr><th>上場区分</th><td>未上場</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>IPO準備中</li><li>社長リレーション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2020年4月創業。「世界一楽しいショッピング体験をつくる」をビジョンに、「誰かと一緒に」を楽しむシェア買いアプリ「カウシェ」を運営しています。「カウシェ」のダウンロード数は累計200万を突破、食品・日用品・美容領域を中心としたアイテムを販売しています。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2020年4月創業。「世界一楽しいショッピング体験をつくる」をビジョンに、「誰かと一緒に」を楽しむシェア買いアプリ「カウシェ」を運営しています。「カウシェ」のダウンロード数は累計200万を突破、食品・日用品・美容領域を中心としたアイテムを販売しています。</p><p>2023年9月にはサービスの特徴であった「シェア買い」機能を刷新し、1人購入も可能に。また、「カウシェファーム」という農園ゲームをアプリ内にリリース。農園ゲーム内で育てたデジタルの作物が、収穫後に実際の商品となって自宅に届くというといった、ソーシャル性・エンタメ性を持たせたことによりユーザー数が激増（ユーザー数300万人、デイリーアクセス30万人）、売上も平均MoM35％で急成長しています。</p><p>「物を購入する」という目的に留まらず、楽しさを追求できる場所として、デジタルの買い物体験のアップデートを目指されています。</p><p>2024年4月には新たなビジネスモデルとして賞味期限間近品やパッケージの変更等で正規流通ができない商品を中心に買い取り「カウシェ」で販売する「買取・販売事業」を開始するなど、サービス・事業を拡大しています。</p><p>2020年4月の創業からこれまでに総額約32億円の資金調達をおこなっています。</p><p><strong>代表取締役　門奈 剣平氏</strong><br>1991年生まれ。日中ハーフ。2007年まで上海で生まれ育つ。2015年慶應義塾大学環境情報学部卒。2012年より「Relux」を運営するLoco Partnersに、2人目のメンバーとして入社。シード前からM&A後のPMIまで経験。海外事業立ち上げから責任者を務め、年間取扱高50億円の大幅な事業グロースに貢献、海外担当執行役員&中国支社長兼任。2020年4月にカウシェを起業。</p><p>ソーシャルゲーム内で育てた作物を実際に貰える「カウシェファーム」が主婦層に広がり、30万人のデイリーアクセスユーザーがいます。一般的なECサイトは購入目的でアクセスしますが、「カウシェファーム」はゲームをしにきたついでに購入、というのが主流で平均滞在時間18分、1回あたり購入単価1,000〜2,000円となっています。</p><p>事業ピポット後わずか1年で粗利16倍／GMV9倍／累計300万DL を達成しV字回復されています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 人事部長(CHRO候補)</div>
+          <div class="job-preview">事業成長の根幹を担う「人事」を単なる管理部門ではなく、圧倒的な競争優位性に変えるCHRO候補を募集。「100人で企業価値1兆円」を目指す</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>募集の背景</strong><br>カウシェは2023年のピボット以降、GMV30倍・売上総利益252倍・DAU68倍という急成長を遂げ、累計600万DLを超えました。IPOとその先の非連続成長を目指し、今年度は大規模な組織拡大を計画しています。</p><p>私たちが目指している組織モデルは、人数に比例して売上を伸ばす「労働集約型」ではありません。非労働集約なカウシェのビジネスモデルをベースに、AIをフル活用することで組織の人数を大幅に増やさずとも高い企業価値を生み出していく「超非労働集約型」の組織を創りたいと考えています。その目標が、<strong>「100人で企業価値1兆円」</strong>です。</p><p>現在、人事専任は採用マネージャー2名体制。採用・制度・組織開発・労務と、すべての人事機能を担うには限界が来ています。事業成長の根幹を担う「人事」を単なる管理部門ではなく、圧倒的な競争優位性に変えるCHRO候補を求めています。</p><p><strong>業務内容</strong><br>経営チームの一員として、人事・組織・文化のすべてを掌握し、戦略の策定から実行まで一気通貫でリードしていただきます。</p><p><strong>1. 人事戦略の策定・実行</strong></p><ul><li>中長期的な組織・人員計画の策定： 事業計画に基づいたロードマップと採用・育成計画の設計</li><li>人事制度の設計・改善： 等級・報酬・評価制度の設計と、運用方針の策定・改善サイクルの構築</li><li>人事データの可視化・分析： HRテックを活用したピープルアナリティクスの基盤構築・運用</li><li>各階層の仕組み化： 経営陣・各部門と連携し、あるべき姿に向かえる仕組みの要件定義と実装</li></ul><p><strong>2. 採用戦略の統括</strong></p><ul><li>採用戦略の設計： 全社採用計画の策定、チャネル戦略・エージェント戦略の最適化</li><li>ハイクラス人材の獲得： 経営幹部・専門職採用のダイレクトリクルーティング</li><li>採用ブランディングの統括： 採用広報・採用コンテンツ戦略の方針策定</li><li>採用組織の育成： 採用人事メンバーのマネジメント・育成</li></ul><p><strong>3. 組織文化・エンゲージメントの醸成</strong></p><ul><li>MVV浸透施策： カウシェらしい組織文化をデザインし、全社への浸透をリード</li><li>エンゲージメントの強化： サーベイ設計・結果分析・改善施策の策定と実行</li><li>オンボーディングの設計： 入社後の立ち上がりを最大化する仕組みの構築・改善</li><li>組織開発施策： ワークショップ・1on1・マネージャー育成プログラムの企画・実行</li></ul><p><strong>4. 労務・コンプライアンス管理</strong></p><ul><li>労務管理の統括： 就業規則・各種規程の整備・運用、給与・勤怠管理の監督</li><li>コンプライアンス体制の構築： 法令遵守・ハラスメント防止・内部通報窓口の運用</li><li>IPO準備における人事・労務対応： 上場基準に対応した人事制度・労務体制の整備</li></ul><p><strong>5. AI・テクノロジーを活用した人事DX</strong><br>カウシェでは全社的にAI活用を義務化しています。人事領域においても、AIとHRテックを最大限に活用して生産性と質を同時に高めることをミッションの一つとして担います。</p><p><strong>応募資格：</strong></p><p><span class='tag tag-must'>MUST</span></p><ul><li>IT/インターネット業界での人事責任者またはCHRO経験</li><li>変化の速いスタートアップ・ベンチャー企業での就業経験</li><li>複数職種（エンジニア・ビジネス・コーポレート等）混合企業での人事経験</li><li>30名〜100名規模への組織拡大フェーズを人事としてリードした経験</li><li>事業計画と連携した全社的な人事戦略の策定・実行経験</li><li>人事制度設計・組織開発・労務など人事全般の知見</li><li>数値分析・データドリブンなアプローチでの施策立案・検証経験</li><li>経営陣と戦略的パートナーとして関係構築できるコミュニケーション能力</li></ul><p><span class='tag tag-want'>WANT</span></p><ul><li>事業責任者・子会社社長等の経営経験</li><li>AIやテクノロジーを活用した組織づくりの経験</li><li>ピープルアナリティクス・HRTech分野での業務経験</li><li>タレントマネジメント・組織開発の専門知識・実務経験</li><li>新規制度の導入から運用・改善まで一貫して担当した経験</li><li>ハイクラス人材の採用責任者経験</li><li>M&A・事業再編など複雑な組織変革をリードした経験</li></ul><p><strong>求める人物像：</strong><br>・事業と組織への深いコミットメントを持ち、「100人で企業価値1兆円」という壮大な目標に心からワクワクできる方<br>・人事を「管理部門」ではなく「成長を設計する部門」として捉えられる方<br>・不確実性や変化を楽しみ、答えのない課題に果敢に挑戦できる方<br>・人への深い興味と共感力を持ち、多様なメンバーの可能性を最大限に引き出せる方<br>・カウシェのVISION・MISSION「日常に楽しさを」「新しい生活圏のカタチをつくる」に共感いただける方<br>・カウシェのVALUE「変化を愛す」「追い風をおこせ」「成果でつなげ」「好きを大事に」に共感いただける方</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 ハイブリッド勤務</span><span class="pill">✅ 副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://about.kauche.com/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+
+<div class="card" id="k5"><div class="card-inner">
+  <div class="badges"><span class="badge">人事責任者</span><span class="badge badge-blue">東証グロース</span></div>
+  <div class="co-name">リビン・テクノロジーズ株式会社</div>
+  <div class="co-url"><a href="https://www.lvn.co.jp/" target="_blank">https://www.lvn.co.jp/</a></div>
+  <div class="overview">
+    <h3>Corporate Overview</h3>
+    <table><tr><th>本社住所</th><td>東京都中央区日本橋堀留町1-8-12 ホウライ堀留ビル8階</td></tr><tr><th>設立</th><td>2004年1月</td></tr><tr><th>上場区分</th><td>東証グロース</td></tr></table>
+  </div>
+  <div class="highlight">
+    <h3>⭐ morichオススメPoint</h3>
+    <ul><li>社長リレーション</li></ul>
+  </div>
+  <div class="accordion">
+    <div class="acc-header" onclick="toggleAcc(this)">
+      <div class="acc-header-left">
+        <span class="label">企業紹介</span>
+        <div class="acc-preview">2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。</div>
+      </div>
+      <div class="acc-icon">▼</div>
+    </div>
+    <div class="acc-body"><p>2004年1月に設立。インターネット広告代理店としてスタートし、その後EC事業やサイト運営など複数の事業に挑戦しつつ、現在は主に「不動産 × Webテクノロジー」に特化したビジネスを展開している、東証グロース上場企業です。</p><p>主に、不動産に関する情報・サービスをオンラインで媒介・マッチングするプラットフォーム事業と、不動産会社（仲介・買取・管理など）向けのクラウド型DX支援ツールの開発・運営を行っています。</p><p>主力サービスである不動産売却マッチングプラットフォーム「リビンマッチ」は、成約ベースの成功報酬モデル（利用企業は成果があった場合にのみ費用が発生）を武器に、高い費用対効果で加盟企業を拡大。年間24万件以上の査定依頼を受け付けており、国内最大級の規模を誇ります。</p><p>さらに、不動産会社向けのSaaS型業務支援ツールや集客支援サービスなどを展開し、収益の多様化も進行中。業界のDXインフラとしての地位確立を目指しています。</p><p>単なる「不動産情報サイト」にとどまらず、不動産会社と所有者（あるいは利用者）を結ぶマッチング機能に加え、不動産会社の業務効率化・DX支援を包括する幅広いサービス展開が同社の大きな特徴です。</p><p>組織は今期から事業別ユニット制へと移行しましたが、各ユニットの体制はまだ発展途上であり、事業推進力やマネジメント体制が相対的に弱いという課題を抱えています。今後は、各ユニットを自律的かつ戦略的に動かせる強い組織へと強化していきたいと考えています。</p><p><strong>代表取締役社長　川合大無（かわい・だいむ）氏</strong><br>1975年生まれ。東京農業大学卒業後、ニチモウ株式会社に入社。 バリューコマース株式会社、株式会社サイバーエージェントを経て、2004年に株式会社シースタイル（現：リビン・テクノロジーズ株式会社）を設立し代表取締役社長に就任。</p><p>2004年の設立以来、不動産テックの先駆者として「住生活の困ったをゼロにする」を掲げる成長企業です。主力の「リビンマッチ」は、年間マッチング実績24万件、加盟企業数2,200社を誇る日本最大級の不動産査定・マッチングプラットフォームであり、この市場自体を創造してきた先行者メリットと圧倒的な優位性を持っています。</p><p>現在は東証グロースおよび名証メイン市場に上場。安定した既存事業に加え、宅建免許を取得し「リアル不動産仲介（エージェント事業）」へ参入を決定しました。Webメディアで獲得した豊富な見込み顧客データを活用し、デジタル×リアルの融合で新たな収益モデルを構築する「第二創業期」のフェーズです。5年で売上3倍を目指し、M&Aによる非連続的な成長も戦略の柱に据えています。</p></div>
+  </div>
+  
+    <div class="job-wrap">
+      <div class="job-header" onclick="toggleJob(this)">
+        <div>
+          <div class="job-title-text">📋 人事責任者（CHRO候補）</div>
+          <div class="job-preview">現在、人事の責任者や専門チームが不在で、今後のM&Aによる急成長を見据え、買収した会社との組織と文化の融合や、上場維持のための強固なコーポレート体制を構築することが喫緊の課題</div>
+        </div>
+        <div class="job-icon">▼</div>
+      </div>
+      <div class="job-body">
+        <p><strong>■募集背景</strong><br>現在、人事の責任者や専門チームが不在で、採用活動は採用担当者が作業レベルで対応し、人事制度や評価システムは代表が自ら作成・運用している状況です。今後のM&Aによる急成長を見据え、買収した会社との組織と文化の融合や、上場維持のための強固なコーポレート体制を構築することが喫緊の課題です。また、既存の体制では若手や優秀な人材が育ちにくく、組織に勢いをもたらし、優秀な若手が育つ会社にするための体制構築者が求められています。</p><p><strong>■想定される業務</strong><br>人事の責任者として、採用戦略の立案・実行、社員の育成、評価制度や人事制度の設計・アップデート、そして組織開発までを一貫して主導します。特にM&Aを支えるための組織と文化の融合（PMI）を推進し、全社的な人材マネジメントを通じて、次世代の経営を担う人材が育つ組織基盤を構築します。</p>
+        <div class="meta-pills"><span class="pill">📍 東京</span><span class="pill">🏠 基本出社</span><span class="pill">⚡ 条件によって副業可</span></div>
+      </div>
+    </div>
+  <div class="section-label">外部リンク</div>
+  <div class="links"><a class="lbtn" href="https://www.lvn.co.jp/" target="_blank">🏢 企業サイト</a></div>
+</div></div>
+</main>
+<footer>
+  <p>本資料はmorichが佐々木世紀 様のためにご用意した個人情報を含む機密資料です。無断転用・転載はご遠慮ください。</p>
+  <p style="margin-top:6px;">© 株式会社morich</p>
+</footer>
+<script>
+  function toggleAcc(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+  function toggleJob(header) {
+    const body = header.nextElementSibling;
+    header.classList.toggle('open');
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>
